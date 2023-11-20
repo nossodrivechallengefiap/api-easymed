@@ -1,10 +1,13 @@
 package br.com.easymed.apieasymed.model.entity;
 
+import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoPFisica;
+import br.com.easymed.apieasymed.model.dto.DadosCadastroPFisica;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_PESSOA_FISICA", uniqueConstraints = {
@@ -21,6 +24,24 @@ public class PessoaFisica extends Usuario
 
 	// CONSTRUTORES
 	public PessoaFisica() {
+	}
+	
+	public PessoaFisica(DadosCadastroPFisica dados) {
+		super(dados.senha(), dados.email());
+		this.nome = dados.nome();
+		this.cpf = dados.cpf();
+ 	}
+	
+	public void atualizar(@Valid DadosAtualizacaoPFisica dados) {
+		super.atualizarPf(dados);
+
+		if (dados.nome() != null) {
+			this.nome = dados.nome();
+		}
+		
+		if (dados.cpf() != null) {
+			this.cpf = dados.cpf();
+		}
 	}
 
 	// GETTERS & SETTERS
