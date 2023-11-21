@@ -1,6 +1,7 @@
 package br.com.easymed.apieasymed.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record DadosCadastroPFisica(
@@ -17,7 +18,7 @@ public record DadosCadastroPFisica(
 		String nome,
 		
 		@NotBlank
-		@Size(max = 14)
+		@Pattern(regexp = "\\d{3}.\\d{3}.\\d{3}-\\d{2}")
 		String cpf
 		) {
 

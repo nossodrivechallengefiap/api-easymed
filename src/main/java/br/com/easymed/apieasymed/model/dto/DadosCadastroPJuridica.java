@@ -1,6 +1,7 @@
 package br.com.easymed.apieasymed.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record DadosCadastroPJuridica(
@@ -17,7 +18,7 @@ public record DadosCadastroPJuridica(
 		String razaoSocial,
 		
 		@NotBlank
-		@Size(max = 18)
+		@Pattern(regexp = "\\d{2}.\\d{3}.\\d{3}/\\d{4}-\\d{2}")
 		String cnpj
 		) {
 
