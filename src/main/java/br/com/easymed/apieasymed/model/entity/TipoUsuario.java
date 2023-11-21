@@ -48,7 +48,7 @@ public class TipoUsuario
 	
 	public void atualizar(@Valid DadosAtualizacaoTpUsuario dados) {
 		if (dados.usuario() != null) {
-			this.usuario.atualizarSemPk(dados.usuario());
+			this.usuario.atualizarTpUsuario(dados.usuario());
 		}
 		
 		if (dados.tipoUsuario() != null) {

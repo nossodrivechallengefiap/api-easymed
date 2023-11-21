@@ -63,7 +63,7 @@ public class Usuario
 		}
 	}
 	
-	public void atualizarSemPk(@Valid DadosAtualizacaoUsuarioSemPk dados) {
+	public void atualizarTpUsuario(@Valid DadosAtualizacaoUsuarioSemPk dados) {
 		if (dados.senha() != null) {
 			this.senha = dados.senha();
 		}

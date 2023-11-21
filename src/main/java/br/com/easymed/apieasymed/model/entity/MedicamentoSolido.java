@@ -1,61 +1,52 @@
 package br.com.easymed.apieasymed.model.entity;
 
-import jakarta.persistence.CascadeType;
+import java.math.BigDecimal;
+
+import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoMedSolido;
+import br.com.easymed.apieasymed.model.dto.DadosCadastroMedSolido;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ForeignKey;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_MEDICAMENTO_SOLIDO")
-@PrimaryKeyJoinColumn(name = "CODIGO_MEDICAMENTO_SOLIDO")
+@DiscriminatorValue("SOLIDO")
 public class MedicamentoSolido extends Medicamento 
-{
-	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-	@JoinColumn(
-				name = "CODIGO_MEDICAMENTO",
-				referencedColumnName = "CODIGO_MEDICAMENTO",
-				foreignKey = @ForeignKey(name = "FK_MEDICAMENTO_SOLIDO_MEDICAMENTO"),
-				nullable = false
-			)
-	private Medicamento medicamento;
-	
+{	
 	@Column(name = "QUANTIDADE", nullable = false)
-	private Long quantidade;
+	private BigDecimal quantidade;
 
 	// CONSTRUTORES
 	public MedicamentoSolido() {
 	}
 
-//	public MedicamentoSolido(Long codigoMedicamento, String nomeMedicamento, Long quantidade) {
-//		super(codigoMedicamento, nomeMedicamento);
-//		this.quantidade = quantidade;
-//	}
+	public MedicamentoSolido(DadosCadastroMedSolido dados) {
+		super(dados.nomeMedicamento());
+		this.quantidade = dados.quantidade();
+	}
+	
+	public void atualizar(@Valid DadosAtualizacaoMedSolido dados) {
+		super.atualizarMedSolido(dados);
+		
+		if (dados.quantidade() != null) {
+			this.quantidade = dados.quantidade();
+		}
+	}	
 
 	// GETTERS & SETTERS
-	public Medicamento getMedicamento() {
-		return medicamento;
-	}
-
-	public void setMedicamento(Medicamento medicamento) {
-		this.medicamento = medicamento;
-	}
-
-	public Long getQuantidade() {
+	public BigDecimal getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Long quantidade) {
+	public void setQuantidade(BigDecimal quantidade) {
 		this.quantidade = quantidade;
 	}
 
 	// TO STRING
 	@Override
 	public String toString() {
-		return "MedicamentoSolido [medicamento=" + medicamento + ", quantidade=" + quantidade + "]" + super.toString();
+		return "MedicamentoSolido [quantidade=" + quantidade + "]" + super.toString();
 	}
 }

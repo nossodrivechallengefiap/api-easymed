@@ -2,30 +2,20 @@ package br.com.easymed.apieasymed.model.entity;
 
 import java.math.BigDecimal;
 
-import jakarta.persistence.CascadeType;
+import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoMedLiquido;
+import br.com.easymed.apieasymed.model.dto.DadosCadastroMedLiquido;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ForeignKey;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_MEDICAMENTO_LIQUIDO")
-@PrimaryKeyJoinColumn(name = "CODIGO_MEDICAMENTO_LIQUIDO")
+//@PrimaryKeyJoinColumn(name = "CODIGO_MEDICAMENTO_LIQUIDO")
+@DiscriminatorValue("LIQUIDO")
 public class MedicamentoLiquido extends Medicamento 
-{
-	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-	@JoinColumn(
-				name = "CODIGO_MEDICAMENTO",
-				referencedColumnName = "CODIGO_MEDICAMENTO",
-				foreignKey = @ForeignKey(name = "FK_MEDICAMENTO_LIQUIDO_MEDICAMENTO"),
-				nullable = false
-			)
-	private Medicamento medicamento;
-	
+{	
 	@Column(name = "VOLUME", nullable = false)
 	private BigDecimal volume;
 
@@ -33,20 +23,20 @@ public class MedicamentoLiquido extends Medicamento
 	public MedicamentoLiquido() {
 	}
 	
-//	public MedicamentoLiquido(Long codigoMedicamento, String nomeMedicamento, Double volume) {
-//		super(codigoMedicamento, nomeMedicamento);
-//		this.volume = volume;
-//	}
+	public MedicamentoLiquido(DadosCadastroMedLiquido dados) {
+		super(dados.nomeMedicamento());
+		this.volume = dados.volume();
+	}
+	
+	public void atualizar(@Valid DadosAtualizacaoMedLiquido dados) {
+		super.atualizarMedLiquido(dados);
+		
+		if (dados.volume() != null) {
+			this.volume = dados.volume();
+		}
+	}
 	
 	// GETTERS & SETTERS
-	public Medicamento getMedicamento() {
-		return medicamento;
-	}
-
-	public void setMedicamento(Medicamento medicamento) {
-		this.medicamento = medicamento;
-	}
-
 	public BigDecimal getVolume() {
 		return volume;
 	}
@@ -58,6 +48,6 @@ public class MedicamentoLiquido extends Medicamento
 	// TO STRING
 	@Override
 	public String toString() {
-		return "MedicamentoLiquido [medicamento=" + medicamento + ", volume=" + volume + "]" + super.toString();
+		return "MedicamentoLiquido [volume=" + volume + "]" + super.toString();
 	}
 }

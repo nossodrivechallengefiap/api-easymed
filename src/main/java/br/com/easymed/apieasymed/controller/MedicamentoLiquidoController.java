@@ -13,39 +13,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.easymed.apieasymed.model.MedicamentoRepository;
-import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoMedicamento;
-import br.com.easymed.apieasymed.model.dto.DadosCadastroMedicamento;
-import br.com.easymed.apieasymed.model.dto.DadosListagemMedicamento;
-import br.com.easymed.apieasymed.model.entity.Medicamento;
+import br.com.easymed.apieasymed.model.MedicamentoLiquidoRepository;
+import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoMedLiquido;
+import br.com.easymed.apieasymed.model.dto.DadosCadastroMedLiquido;
+import br.com.easymed.apieasymed.model.dto.DadosListagemMedLiquido;
+import br.com.easymed.apieasymed.model.entity.MedicamentoLiquido;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/medicamento")
-public class MedicamentoController 
+@RequestMapping("/medicamento/liquido")
+public class MedicamentoLiquidoController 
 {
 	@Autowired
-	private MedicamentoRepository repository;
+	private MedicamentoLiquidoRepository repository;
 	
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastroMedicamento dados) {
-		repository.save(new Medicamento(dados));
+	public void cadastrar(@RequestBody @Valid DadosCadastroMedLiquido dados) {
+		repository.save(new MedicamentoLiquido(dados));
 	}
 	
 	@GetMapping
-	public Page<DadosListagemMedicamento> listar(
+	public Page<DadosListagemMedLiquido> listar(
 			@PageableDefault(size = 3, sort = {"nomeMedicamento"}) Pageable paginacao){
-		return repository.findAll(paginacao).map(DadosListagemMedicamento :: new);
+		return repository.findAll(paginacao).map(DadosListagemMedLiquido :: new);
 	}
 	
 	@GetMapping("/{id}")
-	public DadosListagemMedicamento obterPorId(@PathVariable Long id) {
-	    Medicamento md = repository.findById(id).orElse(null);
+	public DadosListagemMedLiquido obterPorId(@PathVariable Long id) {
+	    MedicamentoLiquido mdl = repository.findById(id).orElse(null);
 
-	    if (md != null) {
-	        return new DadosListagemMedicamento(md);
+	    if (mdl != null) {
+	        return new DadosListagemMedLiquido(mdl);
 	    } else {
 	        return null;
 	    }
@@ -53,10 +53,10 @@ public class MedicamentoController
 	
 	@PutMapping
 	@Transactional
-	public void atualizar(@RequestBody @Valid DadosAtualizacaoMedicamento dados) {
-		Medicamento md = new Medicamento();
-		md = repository.getReferenceById(dados.codigoMedicamento());
-		md.atualizar(dados);
+	public void atualizar(@RequestBody @Valid DadosAtualizacaoMedLiquido dados) {
+		MedicamentoLiquido mdl = new MedicamentoLiquido();
+		mdl = repository.getReferenceById(dados.codigoMedicamento());
+		mdl.atualizar(dados);
 	}
 	
 	@DeleteMapping("/{id}")
