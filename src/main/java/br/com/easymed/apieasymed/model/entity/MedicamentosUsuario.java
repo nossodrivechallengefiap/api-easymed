@@ -1,9 +1,12 @@
 package br.com.easymed.apieasymed.model.entity;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoMedicUsuario;
+import br.com.easymed.apieasymed.model.dto.DadosCadastroMedicUsuario;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,6 +21,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_MEDICAMENTOS_USUARIOS")
@@ -60,8 +64,28 @@ public class MedicamentosUsuario
 	public MedicamentosUsuario() {
 		medicamento = new LinkedHashSet<>();
 	}
-
 	
+	public MedicamentosUsuario(DadosCadastroMedicUsuario dados) {
+	    this.usuario = new Usuario(dados.usuario());
+
+	    this.medicamento = new LinkedHashSet<>();
+	    Medicamento medicamento = new Medicamento(dados.medicamento());
+	    this.medicamento.add(medicamento);
+	}
+	
+	public void atualizar(@Valid DadosAtualizacaoMedicUsuario dados) {
+		if (dados.usuario() != null) {
+			this.usuario.atualizarTpUsuario(dados.usuario());
+		}
+		
+		if (dados.medicamento() != null) {
+	        Set<Medicamento> novosMedicamentos = new LinkedHashSet<>();
+	        novosMedicamentos.add(new Medicamento(dados.medicamento()));
+
+	        this.medicamento = novosMedicamentos;
+	    }
+	}
+
 	// GETTERS & SETTERS
 	public Long getCodigoMedicamentoUsuario() {
 		return codigoMedicamentoUsuario;
