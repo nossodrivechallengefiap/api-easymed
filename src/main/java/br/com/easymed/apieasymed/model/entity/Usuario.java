@@ -1,5 +1,9 @@
 package br.com.easymed.apieasymed.model.entity;
 
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
+
 import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoPFisica;
 import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoPJuridica;
 import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoUsuario;
@@ -13,6 +17,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -37,11 +43,34 @@ public class Usuario
 	
 	@Column(name = "EMAIL", length = 255, nullable = false)
 	private String email;
+	
+	@ManyToMany(mappedBy = "users")
+    @OrderBy("nomeMedicamento ASC")
+    Set<Medicamento> medicine;
 
+
+    public Usuario addObra(Medicamento m) {
+        this.medicine.add( m );
+        return this;
+    }
+
+    public Usuario removeObra(Medicamento m) {
+        this.medicine.remove( m );
+        return this;
+    }
+	
 	// CONSTRUTORES
 	public Usuario() {
+		this.medicine = new LinkedHashSet<>();
 	}
 	
+	public Usuario(Long codigoUsuario, String senha, String email, Set<Medicamento> medicine) {
+		this.codigoUsuario = codigoUsuario;
+		this.senha = senha;
+		this.email = email;
+		this.medicine = Objects.nonNull( medicine ) ? medicine : new LinkedHashSet<>();
+	}
+
 	public Usuario(String senha, String email) {
 		this.senha = senha;
 		this.email = email;
