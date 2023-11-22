@@ -12,5 +12,5 @@ public record DadosAtualizacaoMedLiquido(
 		@Size(max = 255)
 		String nomeMedicamento,
 		
-		BigDecimal volume) {
+		BigDecimal volumeMl) {
 }

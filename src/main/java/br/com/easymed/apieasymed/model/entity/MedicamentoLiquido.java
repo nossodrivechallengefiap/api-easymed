@@ -16,8 +16,8 @@ import jakarta.validation.Valid;
 @DiscriminatorValue("LIQUIDO")
 public class MedicamentoLiquido extends Medicamento 
 {	
-	@Column(name = "VOLUME", nullable = false)
-	private BigDecimal volume;
+	@Column(name = "VOLUME_ML", nullable = false)
+	private BigDecimal volumeMl;
 
 	// CONSTRUTOR VAZIO
 	public MedicamentoLiquido() {
@@ -25,29 +25,29 @@ public class MedicamentoLiquido extends Medicamento
 	
 	public MedicamentoLiquido(DadosCadastroMedLiquido dados) {
 		super(dados.nomeMedicamento());
-		this.volume = dados.volume();
+		this.volumeMl = dados.volumeMl();
 	}
 	
 	public void atualizar(@Valid DadosAtualizacaoMedLiquido dados) {
 		super.atualizarMedLiquido(dados);
 		
-		if (dados.volume() != null) {
-			this.volume = dados.volume();
+		if (dados.volumeMl() != null) {
+			this.volumeMl = dados.volumeMl();
 		}
 	}
 	
 	// GETTERS & SETTERS
-	public BigDecimal getVolume() {
-		return volume;
+	public BigDecimal getVolumeMl() {
+		return volumeMl;
 	}
 
-	public void setVolume(BigDecimal volume) {
-		this.volume = volume;
+	public void setVolumeMl(BigDecimal volumeMl) {
+		this.volumeMl = volumeMl;
 	}
 
 	// TO STRING
 	@Override
 	public String toString() {
-		return "MedicamentoLiquido [volume=" + volume + "]" + super.toString();
+		return "MedicamentoLiquido [volumeMl=" + volumeMl + "]" + super.toString();
 	}
 }

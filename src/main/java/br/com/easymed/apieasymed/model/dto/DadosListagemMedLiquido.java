@@ -7,13 +7,13 @@ import br.com.easymed.apieasymed.model.entity.MedicamentoLiquido;
 public record DadosListagemMedLiquido(
 		Long codigoMedicamento,
 		String nomeMedicamento,
-		BigDecimal volume) {
+		BigDecimal volumeMl) {
 	
 	public DadosListagemMedLiquido(MedicamentoLiquido med) {
 		this(
 				med.getCodigoMedicamento(),
 				med.getNomeMedicamento(),
-				med.getVolume()
+				med.getVolumeMl()
 			);
 	}
 }

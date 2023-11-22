@@ -12,7 +12,7 @@ public record DadosCadastroMedLiquido(
 		String nomeMedicamento,
 		
 		@NotNull
-		BigDecimal volume
+		BigDecimal volumeMl
 		) {
 
 }
