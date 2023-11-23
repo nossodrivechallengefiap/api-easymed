@@ -1,69 +1,37 @@
 package br.com.easymed.apieasymed.model.entity;
 
-import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoPJuridica;
-import br.com.easymed.apieasymed.model.dto.DadosCadastroPJuridica;
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import jakarta.validation.Valid;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "EM_PESSOA_JURIDICA", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "CNPJ", name = "UK_PJ_CNPJ")
+    @UniqueConstraint(columnNames = "CNPJ", name = "UK_EM_PESSOA_JURIDICA_CNPJ")
 })
 @DiscriminatorValue("PJ")
-public class PessoaJuridica extends Usuario
-{
-	@Column(name = "RAZAO_SOCIAL", nullable = false, length = 255)
-	private String razaoSocial;
-	
-	@Column(name = "CNPJ", nullable = false, length = 18)
-	private String cnpj;
+public class PessoaJuridica extends Pessoa {
 
-	// CONSTRUTORES
-	public PessoaJuridica() {
-	}
-	
-	public PessoaJuridica(DadosCadastroPJuridica dados) {
-		super(dados.senha(), dados.email());
-		this.razaoSocial = dados.razaoSocial();
-		this.cnpj = dados.cnpj();
-	}
-	
-	public void atualizar(@Valid DadosAtualizacaoPJuridica dados) 
-	{
-		super.atualizarPj(dados);
-		
-		if (dados.razaoSocial() != null) {
-			this.razaoSocial = dados.razaoSocial();
-		}
-		if(dados.cnpj() != null) {
-			this.cnpj = dados.cnpj();
-		}
-	} 
+    @Column(name = "CNPJ", length = 255)
+    private String cnpj;
 
-	// GETTERS & SETTERS
-	public String getRazaoSocial() {
-		return razaoSocial;
-	}
+    // CONSTRUTORES
+    public PessoaJuridica() {
+    }
 
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
-	}
+    public PessoaJuridica(String cnpj) {
+        this.cnpj = cnpj;
+    }
 
-	public String getCnpj() {
-		return cnpj;
-	}
+    // GETTERS & SETTERS
+    public String getCnpj() {
+        return cnpj;
+    }
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
 
-	// TO STRING
-	@Override
-	public String toString() {
-		return "PessoaJuridica [razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + "]" + super.toString();
-	}
+    // TO STRING
+    @Override
+    public String toString() {
+        return "Pessoa [codigoPessoaJuridica=" + null + ", cnpj=" + cnpj + "]" + super.toString();
+    }
 }

@@ -1,35 +1,12 @@
 package br.com.easymed.apieasymed.model.entity;
 
-import java.util.LinkedHashSet;
-import java.util.Objects;
-import java.util.Set;
-
-import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoPFisica;
-import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoPJuridica;
-import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoUsuario;
-import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoUsuarioSemPk;
-import br.com.easymed.apieasymed.model.dto.DadosCadastroUsuario;
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorColumn;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OrderBy;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_USUARIOS", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "EMAIL", name = "UK_EM_USUARIOS_EMAIL")
 })
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "TIPO_USUARIO")
 public class Usuario 
 {
 	@Id
@@ -43,6 +20,14 @@ public class Usuario
 	
 	@Column(name = "EMAIL", length = 255, nullable = false)
 	private String email;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+	@JoinColumn(
+			name = "CODIGO_PESSOA",
+			referencedColumnName = "CODIGO_PESSOA",
+			foreignKey = @ForeignKey(name = "FK_USUARIO_PESSOA")
+	)
+	private Pessoa pessoa;
 		
 	// CONSTRUTORES
 	public Usuario() {
@@ -51,52 +36,6 @@ public class Usuario
 	public Usuario(String senha, String email) {
 		this.senha = senha;
 		this.email = email;
-	}
-
-	public Usuario (DadosCadastroUsuario dados) {
-		this.senha = dados.senha();
-		this.email = dados.email();
-	}
-	
-	
-	public void atualizar(@Valid DadosAtualizacaoUsuario dados) {
-		if (dados.senha() != null) {
-			this.senha = dados.senha();
-		}
-		
-		if (dados.email() != null) {
-			this.email = dados.email();
-		}
-	}
-	
-	public void atualizarTpUsuario(@Valid DadosAtualizacaoUsuarioSemPk dados) {
-		if (dados.senha() != null) {
-			this.senha = dados.senha();
-		}
-		
-		if (dados.email() != null) {
-			this.email = dados.email();
-		}
-	}
-	
-	public void atualizarPf(@Valid DadosAtualizacaoPFisica dados) {
-		if (dados.senha() != null) {
-			this.senha = dados.senha();
-		}
-		
-		if (dados.email() != null) {
-			this.email = dados.email();
-		}
-	}
-	
-	public void atualizarPj(@Valid DadosAtualizacaoPJuridica dados) {
-		if (dados.senha() != null) {
-			this.senha = dados.senha();
-		}
-		
-		if (dados.email() != null) {
-			this.email = dados.email();
-		}
 	}
 	
 	// GETTERS & SETTERS
