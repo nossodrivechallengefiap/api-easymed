@@ -23,7 +23,7 @@ public class Medico {
             referencedColumnName = "CODIGO_PESSOA",
             foreignKey = @ForeignKey(name = "FK_MEDICO_PESSOA")
     )
-    private Pessoa pessoa;
+    private PessoaFisica pessoaFisica;
 
     // CONSTRUTORES
     public Medico() {

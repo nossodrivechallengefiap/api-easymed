@@ -24,7 +24,7 @@ public class Paciente {
             referencedColumnName = "CODIGO_PESSOA",
             foreignKey = @ForeignKey(name = "FK_PACIENTE_PESSOA")
     )
-    private Pessoa pessoa;
+    private PessoaFisica pessoaFisica;
 
     // CONSTRUTORES
     public Paciente() {
