@@ -21,7 +21,7 @@ public class Usuario
 	@Column(name = "EMAIL", length = 255, nullable = false)
 	private String email;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 	@JoinColumn(
 			name = "CODIGO_PESSOA",
 			referencedColumnName = "CODIGO_PESSOA",

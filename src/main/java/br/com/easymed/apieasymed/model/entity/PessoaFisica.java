@@ -32,6 +32,6 @@ public class PessoaFisica extends Pessoa {
     // TO STRING
     @Override
     public String toString() {
-        return "Pessoa [codigoPessoaFisica=" + null + ", cpf=" + cpf + "]" + super.toString();
+        return "PessoaFisica [codigoPessoaFisica=" + null + ", cpf=" + cpf + "]" + super.toString();
     }
 }
