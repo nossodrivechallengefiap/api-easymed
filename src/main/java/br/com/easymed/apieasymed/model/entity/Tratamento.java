@@ -15,13 +15,13 @@ public class Tratamento {
     private Long codigoTratamento;
 
     @Column(name = "DT_INICIO")
-    LocalDate inicio;
+    private LocalDate inicio;
 
     @Column(name = "DT_FIM")
-    LocalDate fim;
+    private LocalDate fim;
 
     @Column(name = "INTERVALO")
-    int intervalo;
+    private int intervalo;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(
@@ -92,7 +92,6 @@ public class Tratamento {
     }
 
     // TO STRING
-
     @Override
     public String toString() {
         return "Tratamento{" +

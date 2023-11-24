@@ -31,11 +31,10 @@ public class PessoaJuridica extends Pessoa {
 
 
     // TO STRING
-
     @Override
     public String toString() {
         return "PessoaJuridica{" +
                 "cnpj='" + cnpj + '\'' +
-                '}';
+                '}' + super.toString();
     }
 }

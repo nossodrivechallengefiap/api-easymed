@@ -34,6 +34,6 @@ public class PessoaFisica extends Pessoa {
     public String toString() {
         return "PessoaFisica{" +
                 "cpf='" + cpf + '\'' +
-                '}';
+                '}' + super.toString();
     }
 }
