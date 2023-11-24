@@ -1,6 +1,13 @@
 package br.com.easymed.apieasymed.model.entity;
 
-import jakarta.persistence.*;
+import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoPessoaJuridica;
+import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroPessoaJuridica;
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_PESSOA_JURIDICA", uniqueConstraints = {
@@ -19,6 +26,11 @@ public class PessoaJuridica extends Pessoa {
     public PessoaJuridica(String cnpj) {
         this.cnpj = cnpj;
     }
+    
+    public PessoaJuridica(DadosCadastroPessoaJuridica dados) {
+    	super(dados.nome(), dados.nascimento());
+    	this.cnpj = dados.cnpj();
+    }
 
     // GETTERS & SETTERS
     public String getCnpj() {
@@ -29,7 +41,6 @@ public class PessoaJuridica extends Pessoa {
         this.cnpj = cnpj;
     }
 
-
     // TO STRING
     @Override
     public String toString() {
@@ -37,4 +48,19 @@ public class PessoaJuridica extends Pessoa {
                 "cnpj='" + cnpj + '\'' +
                 '}' + super.toString();
     }
+    
+    // ATUALIZAR
+    public void atualizar(@Valid DadosAtualizacaoPessoaJuridica dados) {
+		if (dados.nome() != null) {
+			this.setNome(dados.nome());
+		}
+		
+		if (dados.nascimento() != null) {
+	        this.setNascimento(dados.nascimento());
+	    }
+		
+		if (dados.cnpj() != null) {
+			this.cnpj = dados.cnpj();
+		}
+	}
 }
