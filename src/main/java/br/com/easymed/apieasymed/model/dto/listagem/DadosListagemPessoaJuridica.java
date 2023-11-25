@@ -2,7 +2,7 @@ package br.com.easymed.apieasymed.model.dto.listagem;
 
 import java.time.LocalDate;
 
-import br.com.easymed.apieasymed.model.TipoPessoa;
+import br.com.easymed.apieasymed.model.dto.TipoPessoa;
 import br.com.easymed.apieasymed.model.entity.PessoaJuridica;
 
 public record DadosListagemPessoaJuridica(

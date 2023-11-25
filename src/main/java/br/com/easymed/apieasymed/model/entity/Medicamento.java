@@ -1,6 +1,15 @@
 package br.com.easymed.apieasymed.model.entity;
 
-import jakarta.persistence.*;
+import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoMedicamento;
+import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroMedicamento;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "EM_MEDICAMENTOS", uniqueConstraints = {
@@ -28,6 +37,11 @@ public class Medicamento {
         this.codigoMedicamento = codigoMedicamento;
         this.nome = nome;
         this.fabricante = fabricante;
+    }
+    
+    public Medicamento(DadosCadastroMedicamento dados) {
+    	this.nome = dados.nome();
+    	this.fabricante = dados.fabricante();
     }
 
     // GETTERS & SETTERS
@@ -62,5 +76,15 @@ public class Medicamento {
                 ", nome='" + nome + '\'' +
                 ", fabricante='" + fabricante + '\'' +
                 '}';
+    }
+    
+    public void atualizar(DadosAtualizacaoMedicamento dados) {
+    	if (dados.nome() != null) {
+    		this.nome = dados.nome();
+    	}
+    	
+    	if (dados.fabricante() != null) {
+    		this.fabricante = dados.fabricante();
+    	}
     }
 }

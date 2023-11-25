@@ -2,7 +2,7 @@ package br.com.easymed.apieasymed.model.dto.atualizacao;
 
 import java.time.LocalDate;
 
-import br.com.easymed.apieasymed.model.TipoPessoa;
+import br.com.easymed.apieasymed.model.dto.TipoPessoa;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;

@@ -1,4 +1,4 @@
-package br.com.easymed.apieasymed.model;
+package br.com.easymed.apieasymed.model.dto;
 
 public enum TipoPessoa {
 

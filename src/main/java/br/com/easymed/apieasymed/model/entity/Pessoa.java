@@ -2,7 +2,7 @@ package br.com.easymed.apieasymed.model.entity;
 
 import java.time.LocalDate;
 
-import br.com.easymed.apieasymed.model.TipoPessoa;
+import br.com.easymed.apieasymed.model.dto.TipoPessoa;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

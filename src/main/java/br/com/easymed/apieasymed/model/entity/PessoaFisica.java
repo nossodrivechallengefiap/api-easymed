@@ -1,6 +1,6 @@
 package br.com.easymed.apieasymed.model.entity;
 
-import br.com.easymed.apieasymed.model.TipoPessoa;
+import br.com.easymed.apieasymed.model.dto.TipoPessoa;
 import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoPessoa;
 import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoPessoaFisica;
 import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroPessoa;

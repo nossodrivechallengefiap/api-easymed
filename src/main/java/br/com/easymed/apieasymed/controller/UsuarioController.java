@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.easymed.apieasymed.model.PessoaRepository;
-import br.com.easymed.apieasymed.model.TipoPessoa;
 import br.com.easymed.apieasymed.model.UsuarioRepository;
+import br.com.easymed.apieasymed.model.dto.TipoPessoa;
 import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoUsuario;
 import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroUsuario;
 import br.com.easymed.apieasymed.model.dto.listagem.DadosListagemUsuario;
