@@ -1,6 +1,6 @@
 package br.com.easymed.apieasymed.model.entity;
 
-import br.com.easymed.apieasymed.model.dto.DadosAtualizacaoPaciente;
+import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoPaciente;
 import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroPaciente;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

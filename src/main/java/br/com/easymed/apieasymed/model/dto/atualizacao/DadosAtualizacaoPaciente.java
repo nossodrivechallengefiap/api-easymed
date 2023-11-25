@@ -1,6 +1,5 @@
-package br.com.easymed.apieasymed.model.dto;
+package br.com.easymed.apieasymed.model.dto.atualizacao;
 
-import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoPessoaFisica;
 import jakarta.validation.Valid;
 
 public record DadosAtualizacaoPaciente(		
