@@ -1,5 +1,7 @@
 package br.com.easymed.apieasymed.model.entity;
 
+import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoUsuario;
+import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroUsuario;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -44,9 +46,15 @@ public class Usuario
 	public Usuario() {
 	}
 	
-	public Usuario(String senha, String email) {
+	public Usuario(String senha, String email, Pessoa pessoa) {
 		this.senha = senha;
 		this.email = email;
+		this.pessoa = pessoa;
+	}
+	
+	public Usuario(DadosCadastroUsuario dados) {
+		this.senha = dados.senha();
+		this.email = dados.email();
 	}
 	
 	// GETTERS & SETTERS
@@ -74,9 +82,28 @@ public class Usuario
 		this.email = email;
 	}
 
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
 	// TO STRING
 	@Override
 	public String toString() {
 		return "Usuario [codigoUsuario=" + codigoUsuario + ", senha=" + senha + ", email=" + email + "]" + super.toString();
-	}	
+	}
+	
+	// ATUALIZAR
+	public void atualizar(DadosAtualizacaoUsuario dados) {
+		if (dados.email() != null) {
+			this.email = dados.email();
+		}
+		
+		if (dados.senha() != null) {
+			this.senha = dados.senha();
+		}
+	}
 }
