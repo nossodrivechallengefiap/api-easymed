@@ -13,38 +13,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.easymed.apieasymed.model.PacienteRepository;
-import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoPaciente;
-import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroPaciente;
-import br.com.easymed.apieasymed.model.dto.listagem.DadosListagemPaciente;
-import br.com.easymed.apieasymed.model.entity.Paciente;
+import br.com.easymed.apieasymed.model.MedicoRepository;
+import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoMedico;
+import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroMedico;
+import br.com.easymed.apieasymed.model.dto.listagem.DadosListagemMedico;
+import br.com.easymed.apieasymed.model.entity.Medico;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/paciente")
-public class PacienteController {
+@RequestMapping("/medico")
+public class MedicoController 
+{
 	@Autowired
-	private PacienteRepository repository;
+	private MedicoRepository repository;
 	
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastroPaciente dados) {
-		repository.save(new Paciente(dados));
+	public void cadastrar(@RequestBody @Valid DadosCadastroMedico dados) {
+		repository.save(new Medico(dados));
 	}
 
 	@GetMapping
-	public Page<DadosListagemPaciente> listar(
+	public Page<DadosListagemMedico> listar(
 			@PageableDefault(size = 3, sort = { "pessoaFisica.nome" }) Pageable paginacao) {
-		return repository.findAll(paginacao).map(DadosListagemPaciente :: new);
+		return repository.findAll(paginacao).map(DadosListagemMedico :: new);
 	}
 
 	@GetMapping("/{id}")
-	public DadosListagemPaciente obterPorId(@PathVariable Long id) {
-		Paciente pa = repository.findById(id).orElse(null);
+	public DadosListagemMedico obterPorId(@PathVariable Long id) {
+		Medico medi = repository.findById(id).orElse(null);
 
-		if (pa != null) {
-			return new DadosListagemPaciente(pa);
+		if (medi != null) {
+			return new DadosListagemMedico(medi);
 		} else {
 			return null;
 		}
@@ -52,10 +53,10 @@ public class PacienteController {
 	
 	@PutMapping("/{id}")
 	@Transactional
-	public void atualizar(@PathVariable Long id, @RequestBody @Valid DadosAtualizacaoPaciente dados) {
-		Paciente pa = new Paciente();
-		pa = repository.getReferenceById(id);
-		pa.atualizar(dados);
+	public void atualizar(@PathVariable Long id, @RequestBody @Valid DadosAtualizacaoMedico dados) {
+		Medico medi = new Medico();
+		medi = repository.getReferenceById(id);
+		medi.atualizar(dados);
 	}
 
 	@DeleteMapping("/{id}")

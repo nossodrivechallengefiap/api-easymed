@@ -1,6 +1,20 @@
 package br.com.easymed.apieasymed.model.entity;
 
-import jakarta.persistence.*;
+import br.com.easymed.apieasymed.model.dto.atualizacao.DadosAtualizacaoMedico;
+import br.com.easymed.apieasymed.model.dto.cadastro.DadosCadastroMedico;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "EM_MEDICOS", uniqueConstraints = {
@@ -32,19 +46,50 @@ public class Medico {
     public Medico(String crm) {
         this.crm = crm;
     }
+    
+    public Medico(DadosCadastroMedico dados) {
+    	this.crm = dados.crm();
+    	this.pessoaFisica = dados.pessoaFisica();
+    }
 
     // GETTERS & SETTERS
-    public String getCrm() {
-        return crm;
-    }
+    public Long getCodigoMedico() {
+		return codigoMedico;
+	}
 
-    public void setCrm(String crm) {
-        this.crm = crm;
-    }
+	public void setCodigoMedico(Long codigoMedico) {
+		this.codigoMedico = codigoMedico;
+	}
+
+	public String getCrm() {
+		return crm;
+	}
+
+	public void setCrm(String crm) {
+		this.crm = crm;
+	}
+
+	public PessoaFisica getPessoaFisica() {
+		return pessoaFisica;
+	}
+
+	public void setPessoaFisica(PessoaFisica pessoaFisica) {
+		this.pessoaFisica = pessoaFisica;
+	}
 
     // TO STRING
     @Override
     public String toString() {
         return "Medico [codigoMedico=" + codigoMedico + ", crm=" + crm + "]" + super.toString();
+    }
+    
+    public void atualizar(DadosAtualizacaoMedico dados) {
+    	if (dados.crm() != null) {
+    		this.crm = dados.crm();
+    	}
+    	
+    	if (dados.pessoaFisica() != null) {
+    		this.pessoaFisica.atualizar(dados.pessoaFisica());
+    	}
     }
 }

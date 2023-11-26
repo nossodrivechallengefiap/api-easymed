@@ -60,36 +60,60 @@ public class Tratamento {
 
     // GETTERS & SETTERS
     public Long getCodigoTratamento() {
-        return codigoTratamento;
-    }
+		return codigoTratamento;
+	}
 
-    public void setCodigoTratamento(Long codigoTratamento) {
-        this.codigoTratamento = codigoTratamento;
-    }
+	public void setCodigoTratamento(Long codigoTratamento) {
+		this.codigoTratamento = codigoTratamento;
+	}
 
-    public LocalDate getInicio() {
-        return inicio;
-    }
+	public LocalDate getInicio() {
+		return inicio;
+	}
 
-    public void setInicio(LocalDate inicio) {
-        this.inicio = inicio;
-    }
+	public void setInicio(LocalDate inicio) {
+		this.inicio = inicio;
+	}
 
-    public LocalDate getFim() {
-        return fim;
-    }
+	public LocalDate getFim() {
+		return fim;
+	}
 
-    public void setFim(LocalDate fim) {
-        this.fim = fim;
-    }
+	public void setFim(LocalDate fim) {
+		this.fim = fim;
+	}
 
-    public int getIntervalo() {
-        return intervalo;
-    }
+	public int getIntervalo() {
+		return intervalo;
+	}
 
-    public void setIntervalo(int intervalo) {
-        this.intervalo = intervalo;
-    }
+	public void setIntervalo(int intervalo) {
+		this.intervalo = intervalo;
+	}
+
+	public Medico getMedico() {
+		return medico;
+	}
+
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+	public Medicamento getMedicamento() {
+		return medicamento;
+	}
+
+	public void setMedicamento(Medicamento medicamento) {
+		this.medicamento = medicamento;
+	}
 
     // TO STRING
     @Override
