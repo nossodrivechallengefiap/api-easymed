@@ -15,6 +15,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_MEDICOS", uniqueConstraints = {
@@ -49,7 +50,7 @@ public class Medico {
     
     public Medico(DadosCadastroMedico dados) {
     	this.crm = dados.crm();
-    	this.pessoaFisica = dados.pessoaFisica();
+    	this.pessoaFisica = new PessoaFisica(dados.pessoaFisica());
     }
 
     // GETTERS & SETTERS
@@ -83,7 +84,7 @@ public class Medico {
         return "Medico [codigoMedico=" + codigoMedico + ", crm=" + crm + "]" + super.toString();
     }
     
-    public void atualizar(DadosAtualizacaoMedico dados) {
+    public void atualizar(@Valid DadosAtualizacaoMedico dados) {
     	if (dados.crm() != null) {
     		this.crm = dados.crm();
     	}

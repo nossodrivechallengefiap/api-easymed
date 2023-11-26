@@ -14,6 +14,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_PACIENTES")
@@ -93,7 +94,7 @@ public class Paciente {
         return "Paciente [codigoCuidador=" + codigoPaciente + ", altura=" + altura + ", peso=" + peso + "]" + super.toString();
     }
     
-    public void atualizar(DadosAtualizacaoPaciente dados) {
+    public void atualizar(@Valid DadosAtualizacaoPaciente dados) {
     	if (dados.altura() != null) {
     		this.altura = dados.altura();
     	}

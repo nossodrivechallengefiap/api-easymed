@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_MEDICAMENTOS", uniqueConstraints = {
@@ -78,7 +79,7 @@ public class Medicamento {
                 '}';
     }
     
-    public void atualizar(DadosAtualizacaoMedicamento dados) {
+    public void atualizar(@Valid DadosAtualizacaoMedicamento dados) {
     	if (dados.nome() != null) {
     		this.nome = dados.nome();
     	}

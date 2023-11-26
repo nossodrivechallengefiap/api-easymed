@@ -15,6 +15,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "EM_USUARIOS", uniqueConstraints = {
@@ -97,7 +98,7 @@ public class Usuario
 	}
 	
 	// ATUALIZAR
-	public void atualizar(DadosAtualizacaoUsuario dados) {
+	public void atualizar(@Valid DadosAtualizacaoUsuario dados) {
 		if (dados.email() != null) {
 			this.email = dados.email();
 		}

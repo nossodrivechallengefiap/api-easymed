@@ -14,10 +14,10 @@ public record DadosCadastroPessoaFisica(
 		@Size(max = 255)
 		String nome,
 		
-		@NotNull
+//		@NotNull
 		LocalDate nascimento,
 		
-		@NotBlank
+//		@NotBlank
 		@Pattern(regexp = "\\d{3}.\\d{3}.\\d{3}-\\d{2}")
 		String cpf,
 		
