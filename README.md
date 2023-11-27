@@ -72,8 +72,7 @@ do celular e informa ao usuário o nome do remédio e o horário que deve ser to
 - Imagem com link para Video Pitch
 
 <br><br>
-- Imagem com link para video com teste das funcionalidades
-<br>
+- Imagem com link para video com teste das funcionalidades<br>
 [![LOGO DO PROJETO](documentacao/EasyMed.png)](https://youtu.be/UXqQngKSsbg)
 
 - Link para script do Postman 
