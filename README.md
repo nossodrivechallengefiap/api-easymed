@@ -48,20 +48,25 @@ do celular e informa ao usuário o nome do remédio e o horário que deve ser to
 - Back-end hospedado em servidor
 
 ## Tecnologias Utilizadas
-- Java
+- Java 17.0.8 - 2023-07-18 LTS
 - Kotlin
 - Android Studio
-- Spring
-- Oracle
+- Spring 3.0.12
+- Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
 - Python
 
 ## Script Docker e Docker Compose
 - Não foi utilizado Docker
 
 ## Diagramas
-- Diagrama de atividade
-- Diagrama de classes
+- Diagrama de Classes Astah
+![DIAGRAMA ASTAH](documentacao/diagrama-classes-astah.png)
+<br><br>
+- Diagrama de Classes Intellij
+![DIAGRAMA INTELLIJ](documentacao/diagrama-classes-intellij.png)
+
 - Diagrama de modelagem de Banco de dados
+![DIAGRAMA BANCO](documentacao/diagrama-banco.jpg)
 
 ## Links 
 - Imagem com link para o vídeo pith

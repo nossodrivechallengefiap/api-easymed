@@ -1,0 +1,1159 @@
+{
+	"info": {
+		"_postman_id": "43c91f44-a861-4bb4-9a06-fe08fee4f541",
+		"name": "Easy Med",
+		"description": "O EasyMed é um aplicativo Android que tem como objetivo facilitar o tratamento medicamentoso de pessoas com dificuldade visuais ou cognitivas.\n\nPessoas que tomam muitas medicações, principalmente idosos, podem ter dificuldade em lembrar de tomar seus remédios e podem também ter dificuldade de identificar cada um deles.\n\nCom o EasyMed, o usuário pode cadastrar seus medicamentos e horários de uso, e o aplicativo irá notificá-lo quando for a hora certa de tomar cada um deles. Além disso, o aplicativo também identifica a caixa do medicamento usando a câmera do celular e informa ao usuário o nome do remédio e o horário que deve ser tomado.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27149930"
+	},
+	"item": [
+		{
+			"name": "Pessoa Fisica",
+			"item": [
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Igor Lemos\",\r\n    \"nascimento\": \"1996-12-20\",\r\n    \"cpf\": \"000.000.000-00\",\r\n    \"tipo\" : \"PF\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Mario Ito\",\r\n    \"nascimento\": \"2000-01-01\",\r\n    \"cpf\": \"000.000.000-10\",\r\n    \"tipo\" : \"PF\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 03",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Nome Pessoa\",\r\n    \"nascimento\": \"2000-01-01\",\r\n    \"cpf\": \"123.000.000-00\",\r\n    \"tipo\" : \"PF\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Um",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pf/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pf",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Novo nome\",\r\n    \"nascimento\": \"2000-01-01\",\r\n    \"cpf\": \"123.000.000-00\",\r\n    \"pessoa\" : \"PF\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pf/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pf",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pf/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pf",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Cadastro (POST), listagem (GET), atualização (PUT) e deletar (DELETE)\n\n- Nome\n- Nascimento\n- CPF\n- Tipo - Pessoa Física"
+		},
+		{
+			"name": "Pessoa Juridica",
+			"item": [
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Igor Empreendimentos S.A\",\r\n    \"nascimento\": \"1996-12-20\",\r\n    \"cnpj\": \"00.000.000/0000-00\",\r\n    \"tipo\" : \"PJ\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Mario Empreendimentos S.A\",\r\n    \"nascimento\": \"1996-12-20\",\r\n    \"cnpj\": \"00.000.000/0000-10\",\r\n    \"tipo\" : \"PJ\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 03",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Razao Social Empresa\",\r\n    \"nascimento\": \"2000-01-01\",\r\n    \"cnpj\": \"12.000.000/0000-00\",\r\n    \"tipo\" : \"PJ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Um",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pj/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pj",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Java Empreendimentos\",\r\n    \"nascimento\": \"1900-01-01\",\r\n    \"cnpj\": \"12.345.678/0001-00\",\r\n    \"tipo\" : \"PJ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pj/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pj",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/pj/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"pj",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Cadastro (POST), listagem (GET), atualização (PUT) e deletar (DELETE)\n\n- Nome\n- Nascimento\n- CNPJ\n- Tipo - Pessoa Jurídica"
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senha\": \"igorsenha123\",\r\n    \"email\": \"igor1@gmail.com\",\r\n    \"pessoa\" : {\r\n        \"nome\": \"Igor Lima\",\r\n        \"nascimento\": \"1990-06-15\",\r\n        \"tipo\" : \"PF\",\r\n        \"documento\" : \"123.000.000-01\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senha\": \"mariosenha123\",\r\n    \"email\": \"mario@gmail.com\",\r\n    \"pessoa\" : {\r\n        \"nome\": \"Mario Silva\",\r\n        \"nascimento\": \"1990-06-15\",\r\n        \"tipo\" : \"PF\",\r\n        \"documento\" : \"543.987.123-01\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 03",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senha\": \"mariosenha123\",\r\n    \"email\": \"mario1@gmail.com\",\r\n    \"pessoa\" : {\r\n        \"nome\": \"Mario Antonio\",\r\n        \"nascimento\": \"1990-06-15\",\r\n        \"tipo\" : \"PJ\",\r\n        \"documento\": \"12.345.000/0000-10\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Um",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senha\": \"brunosenha123\",\r\n    \"email\": \"bruno321@gmail.com\",\r\n    \"pessoa\" : {\r\n        \"nome\": \"Bruno Empreendimentos LTDA\",\r\n        \"nascimento\": \"1950-06-15\",\r\n        \"documento\": \"89.123.567/0000-15\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Cadastro (POST), listagem (GET), atualização (PUT) e deletar (DELETE)\n\n- Email\n- Senha\n- Pessoa (Pessoa Física ou Jurídica)\n- Documento (CPF / CNPJ)"
+		},
+		{
+			"name": "Medicamento",
+			"item": [
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Nome Remedio 1\",\r\n    \"fabricante\" : \"Fabricante 1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/medicamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medicamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Nome Remedio 2\",\r\n    \"fabricante\" : \"Fabricante 2\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/medicamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medicamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Um",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medicamento/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medicamento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medicamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medicamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Nome Atualizado Remedio 2\",\r\n    \"fabricante\" : \"Novo Fabricante 2\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/medicamento/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medicamento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medicamento/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medicamento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Cadastro (POST), listagem (GET), atualização (PUT) e deletar (DELETE)\n\n- Nome\n- Fabricante"
+		},
+		{
+			"name": "Paciente",
+			"item": [
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"altura\" : 1.75,\r\n    \"peso\" : 50.0,\r\n    \"pessoaFisica\" : {\r\n        \"nome\" : \"Igor Tino\",\r\n        \"nascimento\" : \"1984-01-10\",\r\n        \"cpf\" : \"123.456.987-32\",\r\n        \"tipo\" : \"PF\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/paciente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"altura\" : 1.50,\r\n    \"peso\" : 40.0,\r\n    \"pessoaFisica\" : {\r\n        \"nome\" : \"Joederson Nunes\",\r\n        \"nascimento\" : \"1970-01-10\",\r\n        \"cpf\" : \"879.345.278-14\",\r\n        \"tipo\" : \"PF\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/paciente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Um",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/paciente/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/paciente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"altura\" : 1.90,\r\n    \"peso\" : 80.0,\r\n    \"pessoaFisica\" : {\r\n        \"nome\" : \"Joederson Bin Bash\",\r\n        \"nascimento\" : \"1970-01-10\",\r\n        \"cpf\" : \"879.345.278-14\",\r\n        \"tipo\" : \"PF\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/paciente/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/paciente/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paciente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Cadastro (POST), listagem (GET), atualização (PUT) e deletar (DELETE)\n\n- Altura\n- Peso\n- Pessoa Física (Nome / Nascimento / CPF)"
+		},
+		{
+			"name": "Medico",
+			"item": [
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"crm\" : \"CRM/SP 123456\",\r\n    \"pessoaFisica\" : {\r\n        \"nome\" : \"Antonio Bandeira\",\r\n        \"nascimento\" : \"1975-06-20\",\r\n        \"cpf\" : \"133.983.560-00\",\r\n        \"tipo\" : \"PF\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/medico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"crm\" : \"CRM/RJ 321123\",\r\n    \"pessoaFisica\" : {\r\n        \"nome\" : \"Maria Nunes\",\r\n        \"nascimento\" : \"1985-07-10\",\r\n        \"cpf\" : \"195.215.784-10\",\r\n        \"tipo\" : \"PF\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/medico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Um",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medico/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medico",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"crm\" : \"CRM/RJ 321123\",\r\n    \"pessoaFisica\" : {\r\n        \"nome\" : \"Maria Pereira\",\r\n        \"nascimento\" : \"1985-07-10\",\r\n        \"cpf\" : \"195.215.784-10\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/medico/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medico",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/medico/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medico",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Cadastro (POST), listagem (GET), atualização (PUT) e deletar (DELETE)\n\n- CRM\n- Pessoa Física (Nome / Nascimento / CPF)"
+		},
+		{
+			"name": "Tratamento",
+			"item": [
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inicio\": \"2023-01-01\",\r\n    \"fim\": \"2023-02-01\",\r\n    \"intervalo\": 24,\r\n    \"medico\": {\r\n        // \"crm\": \"CRM/SP 598128\",\r\n        \"pessoaFisica\": {\r\n            \"nome\": \"Anderson Peter\",\r\n            // \"nascimento\": \"1980-01-01\",\r\n            \"cpf\": \"213.546.984-01\",\r\n            \"tipo\": \"PF\"\r\n        }\r\n    },\r\n    \"paciente\": {\r\n        \"altura\": 1.70,\r\n        \"peso\": 65.0,\r\n        \"pessoaFisica\": {\r\n            \"nome\": \"Moreira Senna\",\r\n            \"nascimento\": \"1990-05-15\",\r\n            \"cpf\": \"871.148.821-00\",\r\n            \"tipo\": \"PF\"\r\n        }\r\n    },\r\n    \"medicamento\": {\r\n        \"nome\": \"Medicamento ABCD\",\r\n        \"fabricante\": \"Fabricante ABC\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tratamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tratamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro 02",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inicio\": \"2023-01-01\",\r\n    \"fim\": \"2023-02-01\",\r\n    \"intervalo\": 24,\r\n    \"medico\": {\r\n        // \"crm\": \"CRM/SP 598128\",\r\n        \"pessoaFisica\": {\r\n            \"nome\": \"Sophia Johnson\",\r\n            // \"nascimento\": \"1980-01-01\",\r\n            \"cpf\": \"217.812.413-01\",\r\n            \"tipo\": \"PF\"\r\n        }\r\n    },\r\n    \"paciente\": {\r\n        \"altura\": 1.70,\r\n        \"peso\": 65.0,\r\n        \"pessoaFisica\": {\r\n            \"nome\": \"Emily Rodriguez\",\r\n            \"nascimento\": \"1990-05-15\",\r\n            \"cpf\": \"512.182.301-00\",\r\n            \"tipo\": \"PF\"\r\n        }\r\n    },\r\n    \"medicamento\": {\r\n        \"nome\": \"MedX\",\r\n        \"fabricante\": \"Pharma\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tratamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tratamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Um",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tratamento/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tratamento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tratamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tratamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inicio\": \"2023-01-01\",\r\n    \"fim\": \"2023-03-01\",\r\n    \"intervalo\": 24,\r\n    // \"medico\": {\r\n        // \"crm\": \"CRM/SP 598128\",\r\n        // \"pessoaFisica\": {\r\n            // \"nome\": \"Dr. Sophia Johnson\",\r\n            // \"nascimento\": \"1980-01-01\",\r\n            // \"cpf\": \"217.812.413-01\",\r\n            // \"tipo\": \"PF\"\r\n        // }\r\n    // },\r\n    // \"paciente\": {\r\n    //     \"altura\": 1.70,\r\n    //     \"peso\": 65.0,\r\n    //     \"pessoaFisica\": {\r\n    //         \"nome\": \"Emily Rodriguez\",\r\n    //         \"nascimento\": \"1990-05-15\",\r\n    //         \"cpf\": \"512.182.301-00\",\r\n    //         \"tipo\": \"PF\"\r\n    //     }\r\n    // },\r\n    \"medicamento\": {\r\n        \"nome\": \"Medicamento EFG\",\r\n        \"fabricante\": \"Pharma Medic\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tratamento/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tratamento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tratamento/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tratamento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Cadastro (POST), listagem (GET), atualização (PUT) e deletar (DELETE)\n\n- Inicio\n    \n- Fim\n    \n- Intervalo\n    \n- Medico (CRM / Nome / Nascimento / CPF)\n    \n- Paciente (Altura / Peso / Nome / Nascimento / CPF)\n    \n- Medicamento (Nome / Fabricante)"
+		}
+	]
+}
