@@ -69,9 +69,18 @@ do celular e informa ao usuário o nome do remédio e o horário que deve ser to
 ![DIAGRAMA BANCO](documentacao/diagrama-banco.jpg)
 
 ## Links 
-- Imagem com link para o vídeo pith
-- imagem com link para o vídeo que contém os testes das funcionalidades. 
+- Imagem com link para Video Pitch
+
+<br><br>
+- Imagem com link para video com teste das funcionalidades
+<br>
+[![Teste API](documentacao/EasyMed.png)](https://youtu.be/UXqQngKSsbg)
+<br><br>
 - Link para script do Postman 
+```markdown
+[Postman JSON](documentacao/EasyMed.postman_collection.json)
+```
+
 
 ## Como executar o projeto
 1. Clonar o repositório
