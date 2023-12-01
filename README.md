@@ -8,18 +8,25 @@ Turma 2TDSPT - 2023
 - Mário Ito Bocchini - RM96950
 
 ## Apresentação
-- Problema que a solução se propõe a solucionar;
-- Maneira como se propõe a solucionar;
+- Problema que a solução se propõe a solucionar / Maneira como se propõe a solucionar:
 
-O EasyMed é um aplicativo Android que tem como objetivo facilitar o tratamento medicamentoso de pessoas com dificuldade 
-visuais ou cognitivas.
+O EasyMed é um aplicativo desenvolvido para dispositivos Android, com o propósito de simplificar o tratamento medicamentoso, especialmente para pessoas com dificuldades visuais ou cognitivas.
+O aplicativo é direcionado especialmente a indivíduos, principalmente idosos, que fazem uso de múltiplos medicamentos e podem encontrar dificuldades em lembrar-se dos horários de administração ou até mesmo em identificar cada medicamento em sua rotina.
 
-Pessoas que tomam muitas medicações, principalmente idosos, podem ter dificuldade em lembrar de tomar seus remédios e 
-podem também ter dificuldade de identificar cada um deles.
+Recursos Principais:
+- Cadastro de Medicamentos:
+Os usuários podem facilmente cadastrar todos os medicamentos que fazem parte de sua rotina de tratamento no EasyMed. Isso inclui nome do medicamento, dosagem, e quaisquer instruções específicas.
+- Notificações:
+O aplicativo permite que o usuário programe os horários específicos de cada dose, personalizando lembretes que se adaptam à sua rotina diária.
+- Reconhecimento do medicamento por imagem:
+Utilizando a câmera do celular, o EasyMed faz a identificação das caixas de medicamentos. O aplicativo reconhece o medicamento e fornece informações detalhadas, incluindo o nome do remédio e o horário recomendado para a administração.
 
-Com o EasyMed, o usuário pode cadastrar seus medicamentos e horários de uso, e o aplicativo irá notificá-lo quando for 
-a hora certa de tomar cada um deles. Além disso, o aplicativo também identifica a caixa do medicamento usando a câmera 
-do celular e informa ao usuário o nome do remédio e o horário que deve ser tomado.
+Benefícios:
+- Prevenção de Erros na Medicação:
+Minimiza a probabilidade de erros na administração de medicamentos, garantindo que cada dose seja tomada no momento certo.
+- Facilidade de Identificação:
+Elimina a incerteza sobre a identificação de medicamentos ao oferecer informações claras e precisas através da câmera do dispositivo.
+
 
  ## Escopo do projeto de desenvolvimento
 - **Objetivo:** 
@@ -49,11 +56,12 @@ do celular e informa ao usuário o nome do remédio e o horário que deve ser to
 
 ## Tecnologias Utilizadas
 - Java 17.0.8 - 2023-07-18 LTS
-- Kotlin
-- Android Studio
+- React Native 0.72.6
+- TypeScript 5.1.3
+- Expo 49.0.15
 - Spring 3.0.12
 - Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-- Python
+- Python 3.11.5
 
 ## Script Docker e Docker Compose
 - Não foi utilizado Docker
@@ -69,7 +77,9 @@ do celular e informa ao usuário o nome do remédio e o horário que deve ser to
 ![DIAGRAMA BANCO](documentacao/diagrama-banco.jpg)
 
 ## Links 
-- Imagem com link para Video Pitch
+
+- Imagem com link para video pitch<br>
+[![LOGO DO PROJETO](documentacao/EasyMed.png)](https://youtu.be/yPsnZgKcqmQ)
 
 <br><br>
 - Imagem com link para video com teste das funcionalidades<br>
